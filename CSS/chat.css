@@ -27,7 +27,7 @@
 .chat__write-container {
   position: fixed;
   bottom: 0;
-  /* 포지션 fixed 가운데정렬 방법! 마진0 오토, 왼0 오0 */
+  /* ..포지션 fixed 가운데정렬 방법! 마진0 오토, 왼0 오0   */
   margin: 0 auto;
   left: 0;
   right: 0;
