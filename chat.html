@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <title>Chat - Kakao Clone</title>
   </head>
-  <body>
+  <body class="chats-body">
     <div class="status-bar">
       <div class="status-bar__column">
         <span class="status-bar__clock">13:52</span>
@@ -41,40 +41,59 @@
         </span>
       </div>
     </header>
-    <main class="chat">
+    <main class="chat-screen">
       <ul class="chat__messages">
         <span class="chat__timestamp">Friday, January 09, 2020</span>
+
+        <li class="incoming-message message">
+          <img
+            src="images/bf.jpg"
+            class="m-avatar message__avatar"
+            alt="아바타"
+          />
+          <div class="message__content">
+            <span class="message__author">Mark Strong</span>
+            <div class="message__bubble">See you at home. I'm on my way!!</div>
+          </div>
+        </li>
+        <li class="sent-message message">
+          <span class="message__timestamp"></span>
+          <div class="message__content">
+            <div class="message__bubble">OK! I'm on my way home too</div>
+          </div>
+        </li>
+        <li class="incoming-message message">
+          <img
+            src="images/bf.jpg"
+            class="m-avatar message__avatar"
+            alt="아바타"
+          />
+          <div class="message__content">
+            <span class="message__author">Mark Strong</span>
+            <div class="message__bubble">Love you XXXXXXX</div>
+          </div>
+        </li>
+        <li class="sent-message message">
+          <span class="message__timestamp"></span>
+          <div class="message__content">
+            <div class="message__bubble">
+              I know ;)
+            </div>
+          </div>
+        </li>
+        <!-- <li class="incoming-message message">
+          <img
+            src="images/me.jpg"
+            class="g-avatar message__avatar"
+            alt="아바타"
+          />
+          <div class="message__content">
+            <span class="message__author">Mark Strong</span>
+            <div class="message__bubble">Love you</div>
+          </div>
+          <span class="message__timestamp"></span>
+        </li> -->
       </ul>
-      <li class="incoming-message message">
-        <img
-          src="images/bf.jpg"
-          class="g-avatar message__avatar"
-          alt="아바타"
-        />
-        <div class="message__content">
-          <span class="message__author">Mark Strong</span>
-          <div class="message__bubble">See you at home XO</div>
-        </div>
-        <span class="message__timestamp"></span>
-      </li>
-      <li class="incoming-message message">
-        <span class="message__timestamp"></span>
-        <div class="message__content">
-          <div class="message__bubble">Yup I'm on my way!</div>
-        </div>
-      </li>
-      <li class="incoming-message message">
-        <img
-          src="images/me.jpg"
-          class="g-avatar message__avatar"
-          alt="아바타"
-        />
-        <div class="message__content">
-          <span class="message__author">Mark Strong</span>
-          <div class="message__bubble">Love you</div>
-        </div>
-        <span class="message__timestamp"></span>
-      </li>
     </main>
     <div class="chat__write">
       <div class="chat__write-column">
