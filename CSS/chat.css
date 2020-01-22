@@ -1,5 +1,17 @@
+.header-wrapper {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  padding: 5px 0;
+  background-color: white;
+  box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3),
+    0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+
 .chats-body {
-  padding: 0;
+  padding: 10px 0;
+  padding-top: 100px;
 }
 
 .chats-body .header,
@@ -7,15 +19,14 @@
   padding: 0 20px;
 }
 
-.chat-screen {
+.chats-body {
   background-image: url("../images/tiny-squares.png");
   min-height: 100vh;
 }
 
-.chat__write {
+.chat__write-container {
   position: fixed;
-  bottom: 50px;
-  width: 80%;
+  bottom: 0;
   /* 포지션 fixed 가운데정렬 방법! 마진0 오토, 왼0 오0 */
   margin: 0 auto;
   left: 0;
@@ -23,11 +34,84 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fcfcfc;
+  /* background-color: #fcfcfc; */
   padding: 10px;
+  width: 100%;
+}
+
+/* 애니메이션주려고 수정  */
+.chat__write {
+  bottom: 0;
+  width: 100%;
+  border-radius: 0;
+  padding: 20px 60px;
+  width: 100%;
+  border: none;
+  font-size: 14px;
+}
+
+.chat__icon-left {
+  position: absolute;
+  left: 10px;
+}
+
+.chat__icon-right {
+  position: absolute;
+  right: 10px;
+}
+
+/* 애니메이션주려고 수정  */
+
+@keyframes float {
+  0% {
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+  50% {
+    box-shadow: 0 30px 60px -60px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+  100% {
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+}
+
+.chat__write {
+  margin: 0 auto;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0;
+  padding: 20px 60px;
+  width: 100%;
+  border: none;
+  font-size: 14px;
+  transition: width 0.5s ease-in-out, border-radius 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+}
+
+.chat__write:focus {
+  outline: none;
+  width: 80%;
+  transform: translateY(-100px);
   border-radius: 40px;
   box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
     0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  animation: float 3s linear infinite forwards;
+}
+
+/* html에서 아이콘이 input 다음에 있어야만 이런 애니메이션 가능! */
+.chat__icon {
+  font-size: 18px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* ~ : 이후에 있는 형제 요소 선택자 */
+.chat__write:focus ~ .chat__icon {
+  opacity: 0;
 }
 
 .chat__write i {
@@ -36,17 +120,6 @@
 
 .chat__write-column:nth-child(2) {
   width: 80%;
-}
-
-.chat__write-column input {
-  padding: 10px;
-  width: 100%;
-  border: none;
-  font-size: 14px;
-}
-
-.chat__write-column input:focus {
-  outline: none;
 }
 
 .chat-screen .chat__messages {
@@ -84,10 +157,22 @@
   align-self: flex-start;
 }
 
+@keyframes spin {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
 .incoming-message img {
   width: 50px;
   border-radius: 20px;
   margin-right: 15px;
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  animation: spin 1s linear infinite;
 }
 
 .sent-message {
@@ -121,3 +206,35 @@
   border-bottom-right-radius: 0;
   background-image: linear-gradient(to left, #2f80ed, #56ccf2);
 }
+
+@keyframes incomingAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.incoming-message {
+  animation: incomingAnimation 0.5s ease-out forwards;
+}
+
+@keyframes sentAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sent-message {
+  animation: sentAnimation 0.5s ease-out forwards;
+}
+
+/* forwards는 요소가 끝까지 value(opacity&transform)들을 계속 유지한다는 뜻. */
