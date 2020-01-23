@@ -26,7 +26,7 @@
   display: flex;
   align-items: center;
 }
-/* .클래스 붙여서 쓰면 이 클래스를 둘 다 가진 요소에 적용된다는 의미. 한 칸 띄어 쓰면 자식 요소를 의미. */
+/* .클래스 붙여서 쓰면 이 클래스를 둘 다 가진 요소에 적용된다는 의미. 한 칸 띄어 쓰면 자식 요소를 의미..! */
 
 .friend .friend__avatar {
   margin-right: 15px;
